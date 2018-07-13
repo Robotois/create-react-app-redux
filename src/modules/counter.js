@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
     case INCREMENT_REQUESTED:
       return {
         ...state,
-        status: 'isIncrementing',
+        status: STATUS.isIncrementing,
       };
 
     case INCREMENT:
