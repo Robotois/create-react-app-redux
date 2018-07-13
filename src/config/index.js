@@ -1,8 +1,7 @@
-
 const config = {
-    hosts: {
-        local: '',
-    },
+  hosts: {
+    local: '',
+  },
 };
 
 export default config;

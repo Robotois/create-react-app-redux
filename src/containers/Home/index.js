@@ -1,9 +1,13 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { push } from 'connected-react-router'
+import React from 'react';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
-import { getCount, isDecrementing as isDec, isIncrementing as isInc } from '../../selectors/counter'
-import { increment, incrementAsync, decrement, decrementAsync } from '../../modules/counter'
+import {
+  getCount,
+  isDecrementing as isDec,
+  isIncrementing as isInc,
+} from '../../selectors/counter';
+import { increment, incrementAsync, decrement, decrementAsync } from '../../modules/counter';
 
 class Home extends React.Component {
   render() {
@@ -16,7 +20,7 @@ class Home extends React.Component {
       decrement,
       decrementAsync,
       changePage,
-    } = this.props
+    } = this.props;
     return (
       <div>
         <h1>Home</h1>
@@ -39,7 +43,7 @@ class Home extends React.Component {
           <button onClick={() => changePage()}>Go to about page via redux</button>
         </p>
       </div>
-    )
+    );
   }
 }
 
@@ -56,4 +60,4 @@ export default connect(
     decrementAsync,
     changePage: () => push('/about-us'),
   },
-)(Home)
+)(Home);
