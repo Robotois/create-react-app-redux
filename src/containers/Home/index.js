@@ -10,8 +10,20 @@ import {
     decrementAsync
 } from '../../modules/counter'
 
-
-class Home extends React.Component {
+@connect(
+    state => ({
+        count: getCount(state),
+        isDecrementing: isDec(state),
+        isIncrementing: isInc(state),
+    }), {
+        increment,
+        incrementAsync,
+        decrement,
+        decrementAsync,
+        changePage: () => push('/about-us')
+    }
+)
+export default class Home extends React.Component {
     render() {
         const { count, increment, incrementAsync, isDecrementing,
             isIncrementing, decrement, decrementAsync, changePage } = this.props;
@@ -43,7 +55,7 @@ class Home extends React.Component {
     }
 }
 
-export default connect(
+/*export default connect(
     state => ({
         count: getCount(state),
         isDecrementing: isDec(state),
@@ -55,4 +67,4 @@ export default connect(
         decrementAsync,
         changePage: () => push('/about-us')
     }
-)(Home)
+)(Home)*/
