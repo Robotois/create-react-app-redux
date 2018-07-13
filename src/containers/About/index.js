@@ -6,7 +6,7 @@ export default class About extends React.PureComponent {
     return (
       <div>
         <h1>About</h1>
-        <p>Count: {count}</p>
+        <p>we all are pros!</p>
       </div>
     );
   }
