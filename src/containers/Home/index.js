@@ -1,46 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+// import { push } from 'connected-react-router';
 
 import {
-  getCount,
-  isDecrementing as isDec,
-  isIncrementing as isInc,
-} from '../../selectors/counter';
-import { increment, incrementAsync, decrement, decrementAsync } from '../../modules/counter';
+  getPokemons,
+  isLoading as loading,
+  hasLoadingError as loadingError,
+} from '../../selectors/pokedex';
+import { loadPokemons } from '../../modules/pokedex';
 
 class Home extends React.Component {
+  componentDidMount() {
+    this.props.loadPokemons();
+  }
+
   render() {
-    const {
-      count,
-      increment,
-      incrementAsync,
-      isDecrementing,
-      isIncrementing,
-      decrement,
-      decrementAsync,
-      changePage,
-    } = this.props;
+    const { pokemons, isLoading, hasLoadingError } = this.props;
+
     return (
       <div>
-        <h1>Home</h1>
-        <p>Count: {count}</p>
+        <h1>Pokemons</h1>
+        <div>{JSON.stringify(pokemons)}</div>
         <p>
-          <button onClick={increment}>Increment</button>
-          <button onClick={incrementAsync} disabled={isIncrementing}>
-            Increment Async
-          </button>
-        </p>
-
-        <p>
-          <button onClick={decrement}>Decrement</button>
-          <button onClick={decrementAsync} disabled={isDecrementing}>
-            Decrement Async
-          </button>
-        </p>
-
-        <p>
-          <button onClick={() => changePage()}>Go to about page via redux</button>
+          <button>Go to about page via redux</button>
         </p>
       </div>
     );
@@ -49,15 +31,11 @@ class Home extends React.Component {
 
 export default connect(
   state => ({
-    count: getCount(state),
-    isDecrementing: isDec(state),
-    isIncrementing: isInc(state),
+    pokemons: getPokemons(state),
+    isLoading: loading(state),
+    hasLoadingError: loadingError(state),
   }),
   {
-    increment,
-    incrementAsync,
-    decrement,
-    decrementAsync,
-    changePage: () => push('/about-us'),
+    loadPokemons,
   },
 )(Home);

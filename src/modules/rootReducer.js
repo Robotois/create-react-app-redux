@@ -1,7 +1,7 @@
-import counter from './counter';
+import pokedex from './pokedex';
 
 export default {
-  counter,
+  pokedex,
 };
 
 export const rootReducer = appReducer => (state, action) => {
