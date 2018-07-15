@@ -16,7 +16,7 @@ export default class LoadMoreList extends React.Component {
     return showLoadingMore ? (
       <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
         {loadingMore && <Spin />}
-        {!loadingMore && <Button onClick={onLoadMore}>loading more</Button>}
+        {!loadingMore && <Button onClick={onLoadMore}>Load more</Button>}
       </div>
     ) : null;
   };
