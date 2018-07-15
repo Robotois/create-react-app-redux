@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.7.0",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
     "react": "^16.4.1",
@@ -27,6 +28,9 @@
     "react-scripts": "1.1.4"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
