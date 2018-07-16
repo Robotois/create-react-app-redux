@@ -7,6 +7,8 @@ import store, { history } from './store';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
+import 'antd/dist/antd.css';
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

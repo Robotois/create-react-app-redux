@@ -1,15 +1,18 @@
 import config from '../config/index';
 
+/* istanbul ignore next */
+function getFetchUrl(path, host) {
+  return `${config.hosts[host]}${path}`;
+}
+
 const methods = ['get', 'post', 'put', 'patch', 'delete', 'file'];
 
 export default class ApiClient {
   headers = {
     'Content-Type': 'application/json',
-    // cache buster for IE11 which otherwise serves GET requests from cache
-    Pragma: 'no-cache',
   };
 
-  constructor(resolveUrl) {
+  constructor(resolveUrl = getFetchUrl) {
     /* istanbul ignore next */
     methods.forEach(method => {
       this[method] = (path, { headers, data, params } = {}, host = 'local') => {
