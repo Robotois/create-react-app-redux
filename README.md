@@ -1,4 +1,4 @@
-#This project aims to help you as a starter kit for any ReactJS project
+# This project aims to help you as a starter kit for any ReactJS project
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
