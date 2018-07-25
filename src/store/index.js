@@ -1,7 +1,10 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore as reduxCreateStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
+
+import clientMiddleware from '../utils/clientMiddleware';
+import ApiClient from '../utils/ApiClient';
 import appReducer, { rootReducer } from '../modules/rootReducer';
 
 export const history = createHistory();
@@ -14,14 +17,21 @@ if (process.env.NODE_ENV === 'development') {
     enhancers.push(devToolsExtension());
   }
 }
+/**
+ * In case we want to add a client as a middleware
+ * like an ApiClient
+ * @param {*} client
+ */
+const createStore = client =>
+  reduxCreateStore(
+    connectRouter(history)(rootReducer(combineReducers(appReducer))),
+    compose(
+      applyMiddleware(clientMiddleware(client), routerMiddleware(history), thunk),
+      ...enhancers,
+    ),
+  );
 
-const store = createStore(
-  connectRouter(history)(rootReducer(combineReducers(appReducer))),
-  compose(
-    applyMiddleware(routerMiddleware(history), thunk),
-    ...enhancers,
-  ),
-);
+const store = createStore(new ApiClient());
 
 /**
  * Register async loaded reducers in store and replace
