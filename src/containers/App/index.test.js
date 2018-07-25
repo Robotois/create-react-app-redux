@@ -1,9 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import store from '../../store';
+import { MemoryRouter } from 'react-router-dom';
+
+import App from './';
+
+const Wrapper = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  const component = renderer.create(
+    <MemoryRouter>
+      <Wrapper />
+    </MemoryRouter>,
+  );
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });
