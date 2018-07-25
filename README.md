@@ -17,4 +17,4 @@ This is the basic starter point/kit, if you only consider using [react + redux](
 
 ## Using React Redux and Api Client
 
-This has an Api client implementation that makes easy to add api calls to any REST service like [swapi](https://swapi.co/), the code for that is here [react + redux + api client](https://github.com/Robotois/create-react-app-redux/tree/feature/with-api-client)
+This has an Api client implementation that makes easy to add api calls to any REST service like [swapi](https://swapi.co/), the code for that is here [react + redux + api client](https://github.com/Robotois/create-react-app-redux/tree/with-api-client)
