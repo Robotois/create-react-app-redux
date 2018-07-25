@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <header>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+     
+    <a
+      href="/about-us"
+      onClick={[Function]}
+    >
+      About
+    </a>
+  </header>
+  <main>
+    <div>
+      <h1>
+        Home
+      </h1>
+      <p>
+        Count: 
+        0
+      </p>
+      <p>
+        <button
+          onClick={[Function]}
+        >
+          Increment
+        </button>
+        <button
+          disabled={false}
+          onClick={[Function]}
+        >
+          Increment Async
+        </button>
+      </p>
+      <p>
+        <button
+          onClick={[Function]}
+        >
+          Decrement
+        </button>
+        <button
+          disabled={false}
+          onClick={[Function]}
+        >
+          Decrement Async
+        </button>
+      </p>
+      <p>
+        <button
+          onClick={[Function]}
+        >
+          Go to about page via redux
+        </button>
+      </p>
+    </div>
+  </main>
+</div>
+`;
